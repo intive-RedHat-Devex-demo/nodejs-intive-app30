@@ -6,4 +6,5 @@ resources:
   - ingress.yaml
   - pipeline.yaml
   - pipelinerun.yaml
-  - route.yaml 
+  - route.yaml
+  - deployment.yaml
