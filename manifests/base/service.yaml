@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nodejs-intive-app30
+  labels:
+    app: nodejs-intive-app30
+    app.kubernetes.io/component: backstage
+    backstage.io/kubernetes-id: demo-dev
+    argocd.argoproj.io/instance: nodejs-intive-app30
+    argocd/app-name: nodejs-intive-app30
+    argocd/app-selector: nodejs-intive-app30
+spec:
+  ports:
+    - name: http-3000
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: nodejs-intive-app30

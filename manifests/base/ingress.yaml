@@ -1,0 +1,29 @@
+apiVersion: config.openshift.io/v1
+kind: Ingress
+metadata:
+  name: nodejs-intive-app30
+  namespace: demo-dev
+  labels:
+    app: nodejs-intive-app30
+    app.kubernetes.io/component: backstage
+    backstage.io/kubernetes-id: demo-dev
+    argocd.argoproj.io/instance: nodejs-intive-app30
+    argocd/app-name: nodejs-intive-app30
+    argocd/app-selector: nodejs-intive-app30
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - "nodejs-intive-app28-demo-dev-apps.rosa.e5n9l5l2t8z7q0d.qnbq.p3.openshiftapps.com"
+      secretName: nodejs-intive-app30-tls
+  rules:
+  - host: nodejs-intive-app28-demo-dev-apps.rosa.e5n9l5l2t8z7q0d.qnbq.p3.openshiftapps.com
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nodejs-intive-app30
+              port:
+                number: 3000
